@@ -13,7 +13,7 @@
     <title>Frontend Mentor | Article preview component</title>
   </head>
 
-  <body>
+  <body class="container">
     <header>
       <div class="main-header">
         <h1 class="sr-only">
@@ -25,53 +25,64 @@
       <article class="card">
         <div class="article-wrapper">
           <div class="card__header">
-            <img src="images/drawers.jpg" alt="Dresser decorated with dried floral arrangement and framed art" class="card__image">
+            <figure>
+              <img src="images/drawers.jpg" 
+                alt="Dresser decorated with dried floral arrangement and framed art" 
+                class="card__image"
+                width="660"
+                height="528"
+                loading="lazy">
+            </figure>
           </div>
           <div class="card__body">
             <h2 class="card__title">
-              Shift the overall look and feel by adding these wonderful touches to furniture in your home
+              <a href="#">
+                Shift the overall look and feel by adding these wonderful touches to furniture in your home
+              </a>
             </h2>
             <p class="card__copy">
               Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and uninviting. I’ve got some simple tips to help you make any room feel complete.
             </p>
           </div>
-          <footer class="card__footer">
-            <div class="card__actions">
-              <div class="card__byline">
-                <img src="images/avatar-michelle.jpg" alt="Author">
+        </div>
+        <footer class="card__footer">
+          <div class="card__actions">
+            <div class="card__byline">
+              <img src="images/avatar-michelle.jpg" alt="">
+              <div class="byline-wrapper">
                 <a href="#" rel="author">Michelle Appleton</a>
                 <time datetime="2020-06-28">28 Jun 2020</time>
               </div>
-              <div class="card__cta">
-                <button class="btn btn__open-modal" type="button" aria-label="Open to share article on social media">
+            </div>
+            <div class="card__cta">
+              <button class="btn btn__open-modal" type="button" aria-label="Open to share article on social media">
+                <img src="images/icon-share.svg" alt="" aria-hidden="true">
+              </button>
+            </div>
+          </div>
+          <div
+            class="overlay hidden" 
+            id="modal" 
+            role="dialog"
+            aria-labelledby="title"
+            >
+              <div class="modal-content">
+                <h3 id="title">Share</h3>
+                <a href="https://www.facebook.com" target="_blank">
+                  <img src="images/icon-pinterest.svg" alt="Facebook">
+                </a>
+                <a href="https://www.pinterest.com" target="_blank">
+                  <img src="images/icon-pinterest.svg" alt="Pinterest">
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                  <img src="images/icon-twitter.svg" alt="Twitter">
+                </a>
+                <button class="btn btn__close-modal" type="button" aria-label="Close social media dialog">
                   <img src="images/icon-share.svg" alt="" aria-hidden="true">
                 </button>
               </div>
-            </div>
-            <div
-              class="overlay hidden" 
-              id="modal" 
-              role="dialog"
-              aria-labelledby="title"
-              >
-                <div class="modal-content">
-                  <h3 id="title">Share</h3>
-                  <a href="https://www.facebook.com" target="_blank">
-                    <img src="images/icon-pinterest.svg" alt="Facebook">
-                  </a>
-                  <a href="https://www.pinterest.com" target="_blank">
-                    <img src="images/icon-pinterest.svg" alt="Pinterest">
-                  </a>
-                  <a href="https://twitter.com" target="_blank">
-                    <img src="images/icon-twitter.svg" alt="Twitter">
-                  </a>
-                  <button class="btn btn__close-modal" type="button" aria-label="Close social media dialog">
-                    <img src="images/icon-share.svg" alt="" aria-hidden="true">
-                  </button>
-                </div>
-            </div>
-          </footer>
-        </div>
+          </div>
+        </footer>
       </article>
     </main>
     <footer>
