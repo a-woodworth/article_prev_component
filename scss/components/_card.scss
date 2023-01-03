@@ -1,0 +1,120 @@
+// ___________________________________________________________________
+// Card Styles
+// ___________________________________________________________________
+
+article {
+  background-color: var(--tertiary-color);
+  border-radius: 10px;
+  box-shadow: 0px 40px 40px -10px rgba(201, 213, 225, 0.503415);
+  margin-inline: auto;
+  max-width: 45.625rem;
+  min-width: 17.5rem;
+  overflow: hidden;
+  position: relative;
+
+  h2 {
+    font-size: 1rem;
+    font-weight: var(--font-weight--bold);
+    letter-spacing: 0.2px;
+    margin-bottom: 0.75rem;
+
+    a {
+      color: var(--primary-color);
+    }
+  }
+}
+
+.card__header {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 0;
+  padding-top: calc(100% * (9 / 16));
+  min-block-size: 12.5rem;
+  position: relative;
+  width: 100%;
+
+  img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 100% 24%;
+  }
+}
+
+.card__body {
+  padding: 2.25rem 2rem 1.25rem 2rem;
+}
+
+article h3,
+article p,
+.card__byline {
+  color: var(--secondary-color);
+  font-size: 0.8125rem;
+  font-weight: var(--font-weight--regular);
+  letter-spacing: 0.12px;
+}
+
+.card__byline {
+  display: flex;
+  gap: 1rem;
+  flex-basis: 80%;
+
+  a {
+    color:  var(--primary-color);
+    font-weight: var(--font-weight--bold);
+  }
+
+  img {
+    border-radius: 50%;
+    box-shadow: inset 0 2px 4px 0 var(--accent-color);
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+}
+
+.card__footer {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 2rem 1.25rem 2rem;
+}
+
+.card__actions {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.article-wrapper a::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  display: block;
+  width: 100%;
+  height: calc(100% - 4rem);
+}
+
+.byline-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.card__cta {
+  flex-basis: 20%;
+  text-align: right;
+}
+
+.card__overlay {
+  position: absolute;
+  top: calc(100% - 4rem);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4rem;
+  width: 100%;
+  opacity: 1;
+  transition: 0.5s ease;
+  background-color: var(--primary-color);
+}

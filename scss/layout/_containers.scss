@@ -1,0 +1,10 @@
+// ___________________________________________________________________
+// Containers
+// ___________________________________________________________________
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0 auto 2rem;
+  margin: auto;
+}
