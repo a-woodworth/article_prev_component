@@ -9,7 +9,6 @@ article {
   margin-inline: auto;
   max-width: 45.625rem;
   min-width: 17.5rem;
-  overflow: hidden;
   position: relative;
 
   h2 {
@@ -18,6 +17,12 @@ article {
     letter-spacing: 0.2px;
     margin-bottom: 0.75rem;
 
+    @media (min-width: 50rem) {
+      font-size: 1.25rem;
+      letter-spacing: 0.25px;
+      line-height: 1.4;
+    }
+
     a {
       color: var(--primary-color);
     }
@@ -25,7 +30,7 @@ article {
 
   @media (min-width: 50rem) {
     display: grid;
-    grid-template-columns: 285px 1fr;
+    grid-template-columns: 17.8125rem 1fr;
     grid-template-rows: auto;
   }
 }
@@ -37,6 +42,8 @@ article {
   width: 100%;
 
   img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
     position: absolute;
     top: 0;
     width: 100%;
@@ -45,6 +52,8 @@ article {
     object-position: 100% 35%;
 
     @media (min-width: 50rem) {
+      border-bottom-left-radius: 10px;
+      border-top-right-radius: 0;
       object-position: left;
     }
   }
@@ -57,6 +66,10 @@ article {
 
 .card__body {
   padding: 2.25rem 2rem 1.25rem 2rem;
+
+  @media (min-width: 50rem) {
+      padding: 2.25rem 2.5rem 1.25rem 2.5rem;
+    }
 }
 
 article h3,
@@ -64,18 +77,14 @@ article p,
 .card__byline {
   color: var(--secondary-color);
   font-size: 0.8125rem;
-  font-weight: var(--font-weight--regular);
   letter-spacing: 0.12px;
 }
 
 .card__byline {
-  display: flex;
-  gap: 1rem;
-  flex-basis: 80%;
-
   a {
     color:  var(--primary-color);
     font-weight: var(--font-weight--bold);
+    grid-column: 2;
   }
 
   img {
@@ -83,40 +92,32 @@ article p,
     box-shadow: inset 0 2px 4px 0 var(--accent-color);
     height: 2.5rem;
     width: 2.5rem;
+    grid-column: 1;
+    grid-row: span 2;
   }
+
+  time {
+    grid-column: 2;
+  }
+}
+
+.byline-wrapper {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  grid-template-rows: auto;
+  align-items: center;
+  column-gap: 1rem;
 }
 
 .card__footer {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   padding: 0.75rem 2rem 1.25rem 2rem;
-}
+  position: relative;
 
-.card__actions {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-.byline-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-.card__cta {
-  flex-basis: 20%;
-  text-align: right;
-}
-
-.card__overlay {
-  position: absolute;
-  top: calc(100% - 4rem);
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 4rem;
-  width: 100%;
-  opacity: 1;
-  transition: 0.5s ease;
-  background-color: var(--primary-color);
+  @media (min-width: 50rem) {
+    padding: 0 2.5rem 2rem 2.5rem;
+  }
 }

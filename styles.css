@@ -63,24 +63,29 @@ a:focus {
   background-color: var(--bg-color);
   border: none;
   border-radius: 50%;
+  color: var(--primary-color);
   cursor: pointer;
   height: 32px;
   width: 32px;
   text-decoration: none;
   transition: transform 0.5s ease;
 }
-.btn img {
-  padding-left: 9px;
+.btn svg {
+  color: var(--primary-color);
 }
 .btn:hover {
   border: 1px dotted var(--secondary-color);
   transform: scale(1.2);
 }
 
-.btn__close-modal {
+.btn__modal-open {
   background-color: var(--secondary-color);
+  z-index: 2;
 }
-.btn__close-modal:hover {
+.btn__modal-open svg {
+  color: var(--tertiary-color);
+}
+.btn__modal-open:hover {
   border: 1px dotted var(--tertiary-color);
 }
 
@@ -91,7 +96,6 @@ article {
   margin-inline: auto;
   max-width: 45.625rem;
   min-width: 17.5rem;
-  overflow: hidden;
   position: relative;
 }
 article h2 {
@@ -100,13 +104,20 @@ article h2 {
   letter-spacing: 0.2px;
   margin-bottom: 0.75rem;
 }
+@media (min-width: 50rem) {
+  article h2 {
+    font-size: 1.25rem;
+    letter-spacing: 0.25px;
+    line-height: 1.4;
+  }
+}
 article h2 a {
   color: var(--primary-color);
 }
 @media (min-width: 50rem) {
   article {
     display: grid;
-    grid-template-columns: 285px 1fr;
+    grid-template-columns: 17.8125rem 1fr;
     grid-template-rows: auto;
   }
 }
@@ -118,6 +129,8 @@ article h2 a {
   width: 100%;
 }
 .card__header img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   position: absolute;
   top: 0;
   width: 100%;
@@ -127,6 +140,8 @@ article h2 a {
 }
 @media (min-width: 50rem) {
   .card__header img {
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 0;
     object-position: left;
   }
 }
@@ -140,73 +155,98 @@ article h2 a {
 .card__body {
   padding: 2.25rem 2rem 1.25rem 2rem;
 }
+@media (min-width: 50rem) {
+  .card__body {
+    padding: 2.25rem 2.5rem 1.25rem 2.5rem;
+  }
+}
 
 article h3,
 article p,
 .card__byline {
   color: var(--secondary-color);
   font-size: 0.8125rem;
-  font-weight: var(--font-weight--regular);
   letter-spacing: 0.12px;
 }
 
-.card__byline {
-  display: flex;
-  gap: 1rem;
-  flex-basis: 80%;
-}
 .card__byline a {
   color: var(--primary-color);
   font-weight: var(--font-weight--bold);
+  grid-column: 2;
 }
 .card__byline img {
   border-radius: 50%;
   box-shadow: inset 0 2px 4px 0 var(--accent-color);
   height: 2.5rem;
   width: 2.5rem;
+  grid-column: 1;
+  grid-row: span 2;
+}
+.card__byline time {
+  grid-column: 2;
+}
+
+.byline-wrapper {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  grid-template-rows: auto;
+  align-items: center;
+  column-gap: 1rem;
 }
 
 .card__footer {
   display: flex;
-  align-items: center;
-  padding: 0.75rem 2rem 1.25rem 2rem;
-}
-
-.card__actions {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-
-.byline-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-.card__cta {
-  flex-basis: 20%;
-  text-align: right;
-}
-
-.card__overlay {
-  position: absolute;
-  top: calc(100% - 4rem);
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 4rem;
-  width: 100%;
-  opacity: 1;
-  transition: 0.5s ease;
-  background-color: var(--primary-color);
-}
-
-.modal-content {
-  display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 32px;
+  padding: 0.75rem 2rem 1.25rem 2rem;
+  position: relative;
 }
+@media (min-width: 50rem) {
+  .card__footer {
+    padding: 0 2.5rem 2rem 2.5rem;
+  }
+}
+
+.modal-content.active {
+  background-color: var(--primary-color);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0 2rem;
+}
+@media (min-width: 50rem) {
+  .modal-content.active {
+    box-shadow: 0px 10px 10px rgba(201, 213, 225, 0.503415);
+    border-radius: 10px;
+    padding: 0;
+    height: 3.4375rem;
+    top: -4.875rem;
+    right: -4.5rem;
+    left: 16.5625rem;
+    z-index: 2;
+  }
+}
+@media (min-width: 50rem) {
+  .modal-content.active::after {
+    border-right: solid 12px transparent;
+    border-left: solid 12px transparent;
+    border-top: solid 12px var(--primary-color);
+    border-bottom: solid 12px transparent;
+    transform: translateX(-50%);
+    position: absolute;
+    content: "";
+    top: 100%;
+    left: 50%;
+    height: 0;
+    width: 0;
+  }
+}
+
 .modal-content h3 {
   color: var(--accent-color);
   letter-spacing: 5px;
@@ -218,7 +258,12 @@ article p,
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 22px 0;
+  padding: 1.375rem 0;
+}
+@media (min-width: 50rem) {
+  .socialmedia-wrapper {
+    padding: 1.125rem 2.25rem;
+  }
 }
 .socialmedia-wrapper a:hover {
   transform: scale(1.2);

@@ -2,25 +2,61 @@
 // Modal Styles
 // ___________________________________________________________________
 
-.modal-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 32px;
+.modal-content.active {
+  background-color: var(--primary-color);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0 2rem;
 
-  h3 {
-    color: var(--accent-color);
-    letter-spacing: 5px;
-    margin-right: 5px;
-    text-transform: uppercase;
+  @media (min-width: 50rem) {
+    box-shadow: 0px 10px 10px rgba(201, 213, 225, 0.503415);
+    border-radius: 10px;
+    padding: 0;
+    height: 3.4375rem;
+    top: -4.875rem;
+    right: -4.5rem;
+    left: 16.5625rem;
+    z-index: 2;
   }
+
+  &::after {
+    @media (min-width: 50rem) {
+      border-right: solid 12px transparent;
+      border-left: solid 12px transparent;
+      border-top: solid 12px var(--primary-color);
+      border-bottom: solid 12px transparent;
+      transform: translateX(-50%);
+      position: absolute;
+      content: '';
+      top: 100%;
+      left: 50%;
+      height: 0;
+      width: 0;
+    }
+  }
+}
+
+.modal-content h3 {
+  color: var(--accent-color);
+  letter-spacing: 5px;
+  margin-right: 5px;
+  text-transform: uppercase;
 }
 
 .socialmedia-wrapper {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 22px 0;
+  padding: 1.375rem 0;
+
+  @media (min-width: 50rem) {
+    padding: 1.125rem 2.25rem;
+  }
 
   a:hover {
     transform: scale(1.2);

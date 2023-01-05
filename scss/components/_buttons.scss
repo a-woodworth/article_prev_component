@@ -6,14 +6,15 @@
   background-color: var(--bg-color);
   border: none;
   border-radius: 50%;
+  color: var(--primary-color);
   cursor: pointer;
   height: 32px;
   width: 32px;
   text-decoration: none;
   transition: transform 0.5s ease;
 
-  img {
-    padding-left: 9px;
+  svg {
+    color: var(--primary-color);
   }
 
   &:hover {
@@ -22,8 +23,13 @@
   }
 }
 
-.btn__close-modal {
+.btn__modal-open {
   background-color: var(--secondary-color);
+  z-index: 2;
+
+  svg {
+    color: var(--tertiary-color);
+  }
 
   &:hover {
     border: 1px dotted var(--tertiary-color);
