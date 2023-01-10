@@ -7,6 +7,7 @@
   --footer-link: hsl(228 45% 44%);
   --font-weight--bold: 700;
   --font-weight--regular: 500;
+  --modal-text: hsl(212 23% 80%);
 }
 
 *,
@@ -249,7 +250,7 @@ article p,
 }
 
 .modal-content h3 {
-  color: var(--accent-color);
+  color: var(--modal-text);
   letter-spacing: 5px;
   margin-right: 5px;
   text-transform: uppercase;
