@@ -10,6 +10,15 @@ article {
   max-width: 25rem;
   min-width: 17.5rem;
   position: relative;
+  transition: all 0.2s ease-in-out;
+
+  &:hover,
+  &:focus-within {
+    box-shadow: 0px 45px 45px -10px rgba(201, 213, 225, 0.65);
+    outline-offset: 1.5px;
+    outline: 0.5px dotted var(--primary-color);
+    transform-origin: center;
+  }
 
   h2 {
     font-size: 1rem;
@@ -25,7 +34,7 @@ article {
 
     a {
       color: var(--primary-color);
-    }
+    }  
   }
 
   @media (min-width: 50rem) {
@@ -34,6 +43,17 @@ article {
     grid-template-rows: auto;
     max-width: 45.625rem;
   }
+}
+
+article h2:not(.card__footer, #modal) a::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  cursor: pointer;
 }
 
 .card__header {
