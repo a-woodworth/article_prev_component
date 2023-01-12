@@ -25,7 +25,7 @@ function toggleModal() {
 
 // Exit modal via Escape key
 socialMediaModal.addEventListener('keydown', (e) => {
-  if ( e.key === 'Escape' || e.code === 'Escape' ) {
+  if ( e.key === 'Escape' ) {
     toggleModal();
     shareButton.focus();
   }
@@ -33,7 +33,7 @@ socialMediaModal.addEventListener('keydown', (e) => {
 
 // Trap focus in modal
 shareButton.addEventListener('keydown', (e) => {
-  if ( (e.key === 'Tab' || e.code === 'Tab') && 
+  if ( e.key === 'Tab'  && 
       socialMediaModal.classList.contains('active') &&
       document.activeElement === lastFocusableItem ) {
     // If using shift + tab, go to last link
@@ -50,7 +50,7 @@ shareButton.addEventListener('keydown', (e) => {
 
 // Send focus to share button on tab + shift when inside modal
 socialMediaModal.addEventListener('keydown', (e) => {
-  if ( e.key === 'Tab' || e.code === 'Tab' ) {
+  if ( e.key === 'Tab' ) {
     // if shift + tab on first link, focus goes to button
     if ( e.shiftKey ) {
       if ( document.activeElement === firstFocusableItem ) {
