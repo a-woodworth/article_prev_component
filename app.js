@@ -32,6 +32,23 @@ socialMediaModal.addEventListener('keydown', (e) => {
 });
 
 // Trap focus in modal
+shareButton.addEventListener('keydown', (e) => {
+  if ( (e.key === 'Tab' || e.code === 'Tab') && 
+      socialMediaModal.classList.contains('active') &&
+      document.activeElement === lastFocusableItem ) {
+    // If using shift + tab, go to last link
+    if ( e.shiftKey ) {
+      socialMediaLinks[socialMediaLinks.length - 1].focus();
+      e.preventDefault();
+    } else {
+      // Tab to first link in modal
+      firstFocusableItem.focus();
+      e.preventDefault();
+    }
+  }
+});
+
+// Send focus to share button on tab + shift when inside modal
 socialMediaModal.addEventListener('keydown', (e) => {
   if ( e.key === 'Tab' || e.code === 'Tab' ) {
     // if shift + tab on first link, focus goes to button
@@ -39,13 +56,6 @@ socialMediaModal.addEventListener('keydown', (e) => {
       if ( document.activeElement === firstFocusableItem ) {
         lastFocusableItem.focus();
         e.preventDefault();
-      }
-      // tab
-      else {
-        if ( document.activeElement === lastFocusableItem ) {
-          firstFocusableItem.focus();
-          e.preventDefault();
-        }
       }
     }
   }
