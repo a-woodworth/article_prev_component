@@ -19,17 +19,9 @@ function toggleModal() {
   socialMediaModal.classList.toggle('hidden');
   socialMediaModal.classList.toggle('active');
 
-  // Focus on first social media link
-  firstFocusableItem.focus();
+  // Bring focus to modal
+  socialMediaModal.focus();
 }
-
-// Exit modal via Escape key
-socialMediaModal.addEventListener('keydown', (e) => {
-  if ( e.key === 'Escape' ) {
-    toggleModal();
-    shareButton.focus();
-  }
-});
 
 // Trap focus in modal
 shareButton.addEventListener('keydown', (e) => {
@@ -58,6 +50,24 @@ socialMediaModal.addEventListener('keydown', (e) => {
         e.preventDefault();
       }
     }
+  }
+});
+
+// Exit modal via Escape key
+socialMediaModal.addEventListener('keydown', (e) => {
+  if ( e.key === 'Escape' ) {
+    toggleModal();
+    shareButton.focus();
+  }
+});
+
+// If modal open, close modal if user clicks outside of modal
+document.addEventListener('click', (e) => {
+  const modalIsOpen = document.querySelector('.active');
+  const outsideModal = !e.target.closest('.socialmedia-wrapper');
+
+  if ( modalIsOpen && outsideModal && e.target !== shareButton ) {
+    toggleModal();
   }
 });
 
