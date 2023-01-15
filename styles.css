@@ -102,8 +102,6 @@ article {
 }
 article:hover, article:focus-within {
   box-shadow: 0px 45px 45px -10px rgba(201, 213, 225, 0.65), 0px 0px 0px 1px rgba(201, 213, 225, 0.65);
-  transform-origin: center;
-  transform: translateY(-3px);
 }
 article h2 {
   font-size: 1rem;
