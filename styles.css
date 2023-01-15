@@ -27,6 +27,10 @@ body {
   min-height: 100vh;
 }
 
+ul {
+  list-style-type: none;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -267,14 +271,13 @@ article p,
 .modal-content h3 {
   color: var(--modal-text);
   letter-spacing: 5px;
-  margin-right: 5px;
+  margin-right: 1.25rem;
   text-transform: uppercase;
 }
 
 .socialmedia-wrapper {
   display: flex;
   align-items: center;
-  gap: 1rem;
   padding: 1.375rem 0;
 }
 @media (min-width: 50rem) {
@@ -282,9 +285,15 @@ article p,
     padding: 1.125rem 2.25rem;
   }
 }
-.socialmedia-wrapper a:hover {
+.socialmedia-wrapper a img:hover {
   transform: scale(1.2);
   transition: transform 0.5s ease;
+}
+
+.socialmedia-list {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .container {
