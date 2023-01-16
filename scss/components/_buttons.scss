@@ -15,6 +15,7 @@
 
   svg {
     color: var(--primary-color);
+    pointer-events: none;
   }
 
   &:hover {
